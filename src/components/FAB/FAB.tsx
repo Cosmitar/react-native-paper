@@ -27,6 +27,10 @@ type Props = $RemoveChildren<typeof Surface> & {
    */
   icon: IconSource;
   /**
+   * Size of the icon to display for the `FAB`.
+   */
+  iconSize: number;
+  /**
    * Optional label for extended `FAB`.
    */
   label?: string;
@@ -121,6 +125,7 @@ type Props = $RemoveChildren<typeof Surface> & {
 const FAB = ({
   small,
   icon,
+  iconSize = 24,
   label,
   accessibilityLabel = label,
   accessibilityState,
@@ -232,7 +237,7 @@ const FAB = ({
           pointerEvents="none"
         >
           {icon && loading !== true ? (
-            <IconComponent source={icon} size={24} color={foregroundColor} />
+            <IconComponent source={icon} size={iconSize} color={foregroundColor} />
           ) : null}
           {loading ? (
             <ActivityIndicator size={18} color={foregroundColor} />
